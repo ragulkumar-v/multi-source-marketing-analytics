@@ -1,0 +1,26 @@
+version: 2
+sources:
+  - name: raw
+    database: MARKETING_ANALYTICS
+    schema: RAW
+    tables:
+      # CRM (PostgreSQL CDC via Debezium)
+      - name: raw_crm_customers
+        loaded_at_field: loaded_at
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 6, period: hour}
+      - name: raw_crm_contacts
+      - name: raw_crm_campaigns
+      - name: raw_crm_campaign_responses
+
+      # E-Commerce (MySQL CDC via Debezium)
+      - name: raw_ecom_orders
+      - name: raw_ecom_order_items
+      - name: raw_ecom_products
+      - name: raw_ecom_page_views
+
+      # Marketing APIs
+      - name: raw_ga_sessions
+      - name: raw_google_ads
+      - name: raw_fb_ads
