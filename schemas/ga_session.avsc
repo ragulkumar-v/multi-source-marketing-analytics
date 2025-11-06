@@ -1,0 +1,19 @@
+{
+    "type": "record",
+    "name": "GASession",
+    "namespace": "marketing.ga",
+    "fields": [
+        {"name": "date", "type": "string"},
+        {"name": "source", "type": "string"},
+        {"name": "medium", "type": "string"},
+        {"name": "campaign", "type": ["null", "string"], "default": null},
+        {"name": "sessions", "type": "int"},
+        {"name": "users", "type": "int"},
+        {"name": "new_users", "type": "int"},
+        {"name": "pageviews", "type": "int"},
+        {"name": "bounce_rate", "type": "double"},
+        {"name": "avg_session_duration", "type": "double"},
+        {"name": "goal_completions", "type": "int"},
+        {"name": "extracted_at", "type": "string"}
+    ]
+}

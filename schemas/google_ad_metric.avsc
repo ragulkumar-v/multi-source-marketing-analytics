@@ -1,0 +1,18 @@
+{
+    "type": "record",
+    "name": "GoogleAdMetric",
+    "namespace": "marketing.gads",
+    "fields": [
+        {"name": "date", "type": "string"},
+        {"name": "campaign_id", "type": "string"},
+        {"name": "campaign_name", "type": "string"},
+        {"name": "ad_group_id", "type": "string"},
+        {"name": "ad_group_name", "type": "string"},
+        {"name": "impressions", "type": "long"},
+        {"name": "clicks", "type": "long"},
+        {"name": "cost_micros", "type": "long"},
+        {"name": "conversions", "type": "double"},
+        {"name": "conversion_value", "type": "double"},
+        {"name": "extracted_at", "type": "string"}
+    ]
+}

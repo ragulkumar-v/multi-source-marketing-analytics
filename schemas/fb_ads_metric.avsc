@@ -1,0 +1,20 @@
+{
+    "type": "record",
+    "name": "FBAdsMetric",
+    "namespace": "marketing.fb",
+    "fields": [
+        {"name": "date", "type": "string"},
+        {"name": "campaign_id", "type": "string"},
+        {"name": "campaign_name", "type": "string"},
+        {"name": "adset_id", "type": "string"},
+        {"name": "adset_name", "type": "string"},
+        {"name": "impressions", "type": "long"},
+        {"name": "clicks", "type": "long"},
+        {"name": "spend", "type": "double"},
+        {"name": "actions", "type": "long"},
+        {"name": "action_values", "type": "double"},
+        {"name": "reach", "type": "long"},
+        {"name": "frequency", "type": "double"},
+        {"name": "extracted_at", "type": "string"}
+    ]
+}
