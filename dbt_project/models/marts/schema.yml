@@ -1,0 +1,48 @@
+version: 2
+models:
+  - name: dim_customer_360
+    description: Unified customer view across CRM, e-commerce, and marketing
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+      - name: value_tier
+        tests:
+          - accepted_values:
+              values: ['platinum', 'gold', 'silver', 'bronze', 'prospect']
+      - name: engagement_status
+        tests:
+          - accepted_values:
+              values: ['active', 'cooling', 'at_risk', 'churned', 'never_purchased']
+      - name: customer_health_score
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 100
+
+  - name: fct_ad_performance_daily
+    description: Unified daily ad performance across Google Ads and Facebook Ads
+    columns:
+      - name: platform
+        tests:
+          - accepted_values:
+              values: ['google_ads', 'facebook_ads']
+      - name: impressions
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+
+  - name: fct_marketing_attribution
+    description: Channel-level marketing attribution from Google Analytics
+    columns:
+      - name: session_date
+        tests: [not_null]
+
+  - name: fct_campaign_roi
+    description: Campaign-level ROI analysis
+    columns:
+      - name: campaign_name
+        tests: [not_null]
+      - name: performance_tier
+        tests:
+          - accepted_values:
+              values: ['excellent', 'good', 'break_even', 'underperforming']
